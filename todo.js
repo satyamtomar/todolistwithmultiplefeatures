@@ -300,3 +300,35 @@ function removeTask(index) {
     localStorage.setItem('myList',JSON.stringify(tasks));
     displayTasks();
 }
+
+function sortTasks() {
+  var sortSelect = document.getElementById("sortSelect");
+  var sortOption = sortSelect.value;
+
+  switch (sortOption) {
+      case "dueDate":
+          tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+          break;
+      case "priority":
+          tasks.sort((a, b) => priorityToValueFunc(b.priority) - priorityToValueFunc(a.priority));
+          break;
+      default:
+          break;
+  }
+
+  displayTasks();
+}
+
+function priorityToValueFunc(priority) {
+  switch (priority) {
+      case "lowPriority":
+          return 1;
+      case "mediumPriority":
+          return 2;
+      case "highPriority":
+          return 3;
+      default:
+          return 0;
+  }
+}
+

@@ -9,6 +9,20 @@ body {
     background-color: #8aafc8;
   }
   
+.sorting {
+  margin-top: 20px;
+}
+
+.sorting h2 {
+  margin-bottom: 10px;
+}
+
+.sorting select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
   .container {
     background: #bfcee9;
     margin-top: auto;
