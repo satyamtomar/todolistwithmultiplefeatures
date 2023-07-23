@@ -78,9 +78,12 @@ var subtasks=[];
     }
     var dates=document.getElementById('datetime')
     var dueDate = dates.value;
-    var priority=document.getElementById('priorityList').value;
-    tasks.push({title:task,completed:false,subtasks,dueDate,priority});
+    dates.value='';
+    var priority=document.getElementById('priorityList');
+    
+    tasks.push({title:task,completed:false,subtasks,dueDate,priority:priority.value});
     subTaskList.innerHTML=''
+    // priority='lowPriority';
     var subLI=document.createElement('li');
     
     
@@ -92,7 +95,9 @@ var subtasks=[];
         subTaskList.appendChild(subLI);
 
     localStorage.setItem('myList',JSON.stringify(tasks));
-    displayTasks();
+    // displayTasks();
+    location.reload();
+
 }
 
 
@@ -185,6 +190,10 @@ editBtn.style.display='none';
   li.style.backgroundColor=(task.priority=='lowPriority'?'rgb(106 221 222)':task.priority=='mediumPriority'?'#48acae':'#417074');
          taskList.appendChild(li);
     });
+
+  
+    // sortTasks();
+
 }
 
 function toggleTask(e,myTask) {
