@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="todo.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Todo List</h1>
+        <div class="inputField" id="inpField">
+            <div class="inpFld1">
+            <input type="text" id="inputTask" placeholder="Add a task" maxlength="30">
+            <input type="datetime-local" id="datetime" name="datetime" class="dueDate">
+        </div>
+        <div class="inpFld2">
+          <div>
+            <ul class="subTaskList" id="subTaskList">
+                <li>
+                   <input id="subTasks" class="subTasks" name="message" rows="4" cols="50" placeholder="add  subtasks" >
+       
+                </li>
+                   </ul>
+                   
+          </div>
+            <div>
+                <button id="addMoreSubTask" class="addSubtaskButton" > More Subtask</button>
+             
+            </div>
+              
+        </div>
+        <div>
+            <button id="editTask" class="">Edit</button>
+
+            <button id="addTask">Add Task</button>
+       
+        </div>
+             </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>
