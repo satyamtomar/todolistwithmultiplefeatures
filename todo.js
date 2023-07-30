@@ -81,10 +81,10 @@ var subtasks=[];
     dates.value='';
     var priority=document.getElementById('priorityList');
     const reminderTime = document.getElementById('reminderTime');
-    
+    let tag=document.getElementById('addTags').value;
 
     tasks.push({title:task,completed:false,subtasks,dueDate,priority:priority.value,  reminderTime: new Date(reminderTime.value),
-      id: new Date().getTime()  });
+      id: new Date().getTime(),tag  });
     subTaskList.innerHTML=''
     // priority='lowPriority';
     var subLI=document.createElement('li');
@@ -100,7 +100,7 @@ var subtasks=[];
     localStorage.setItem('myList',JSON.stringify(tasks));
     // displayTasks();
     location.reload();
-
+    
 }
 
 
@@ -142,6 +142,10 @@ editBtn.style.display='none';
 
 
         li.appendChild(text);
+        let tag=document.createElement('span');
+        tag.textContent=task.tag;
+        tag.className='addedTags';
+        li.appendChild(tag);
         let checkbox = document.createElement('input');
         checkbox.type = "checkbox";
         checkbox.className = "checkbox";
