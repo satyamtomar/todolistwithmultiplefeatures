@@ -34,7 +34,14 @@ body {
     transition: all 0.3s ease;
     height: auto;
   }
-  
+  .reminder
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
   .container:hover {
     transform: translateY(-5px);
   }

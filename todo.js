@@ -80,8 +80,11 @@ var subtasks=[];
     var dueDate = dates.value;
     dates.value='';
     var priority=document.getElementById('priorityList');
+    const reminderTime = document.getElementById('reminderTime');
     
-    tasks.push({title:task,completed:false,subtasks,dueDate,priority:priority.value});
+
+    tasks.push({title:task,completed:false,subtasks,dueDate,priority:priority.value,  reminderTime: new Date(reminderTime.value),
+      id: new Date().getTime()  });
     subTaskList.innerHTML=''
     // priority='lowPriority';
     var subLI=document.createElement('li');
@@ -189,6 +192,7 @@ editBtn.style.display='none';
         li.appendChild(removeBtn);
   li.style.backgroundColor=(task.priority=='lowPriority'?'rgb(106 221 222)':task.priority=='mediumPriority'?'#48acae':'#417074');
          taskList.appendChild(li);
+        setReminder(task);
     });
 
   
@@ -340,4 +344,14 @@ function priorityToValueFunc(priority) {
           return 0;
   }
 }
+function setReminder(task) {
+  const now = new Date();
+const reqdTime=new Date(task.reminderTime);
+  const timeUntilReminder =  reqdTime.getTime()- now.getTime();
 
+  if (timeUntilReminder > 0) {
+      setTimeout(function() {
+          alert('Reminder for task: ' + task.title);
+      }, timeUntilReminder);
+  }
+}
